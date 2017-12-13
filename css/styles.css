@@ -1,22 +1,30 @@
+body {
+    background-color: rgb(95, 92, 118);
+}
+
 #header {
+    margin-top: 1%;
     margin-bottom: 5%;
+
+    font-size: 5.0rem;
+    color: white;
 }
 
 .top-10-card {
     min-width: 150px;
     min-height: 150px;
     max-height: 150px;
-
     overflow: hidden;
     margin: 5px;
-    box-shadow: 0 0 5px lightgrey;
+    box-shadow: 0 0 8px rgba(0,0,0,.15);
+    background-color: rgb(57, 56, 75,.75);
 }
 
 .top-10-card-image {
-    max-width: 75px;
-    max-height: 75px;
+    max-width: 60px;
+    max-height: 60px;
     position: absolute;
-    left: 15px;
+    left: 25px;
     top: 15px;
 }
 
@@ -24,22 +32,36 @@
     position: absolute;
     left: 100px;
     top: 15px;
+
+    font-size: 2.0rem;
+    color: white;
+    white-space: nowrap;
 }
 
 .top-10-card-symbol {
     position: absolute;
     left: 100px;
-    top: 35px;
+    top: 45px;
+
+    font-size: 1.5rem;
+    color: white;
 }
 
 .top-10-card-price {
-    padding: 100px 0;
+    position: absolute;
+    padding: 0px 50px;
+    top: 85px;
     text-align: center;
+    color: white;
 }
 
-.top-10-card-price-24h {
-    padding: 100px 0;
-    text-align: center;    
+.top-10-card-price-24h {    
+    position: absolute;
+    top: 85px;
+    padding: 0px 120px;
+    text-align: center;
+    color: white;
+    white-space: nowrap;
 }
 
 
