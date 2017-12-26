@@ -16,14 +16,26 @@
 
         <div id="app">
 
+            <div id="navbar navbar-default" role="navigation">
+
+            </div>
+
             <div id="header" class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <H1 v-once>{{ appName }}</H1>
+                </div>
+                <div class="col-lg-5">
+                    <div class="input-group header-symbol-search">
+                        <input v-model="symbolSearchText" class="form-control" placeholder="Search for a crypto, e.g. BTC" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" v-on:click="onAddClicked">Add</button>
+                        </span>
+                    </div>
                 </div>
             </div>
 
             <div id="content">
-                <div v-for="coin in top10">
+                <div v-for="coin in coins">
                     <div class="row col-lg-6">
                         <div class="top-10-card">
                             <img v-bind:src="coin.image" class="img-thumbnail top-10-card-image">
@@ -31,6 +43,7 @@
                             <p class="top-10-card-symbol">{{coin.symbol}}</p>
                             <p class="top-10-card-price">${{coin.price}}</p>
                             <p class="top-10-card-price-24h">{{coin.percentChanged}}%</p>
+                            <p class="top-10-card-remove"><button class="btn btn-sm btn-danger" type="button">X</button></p>
                         </div>
                     </div>
                 </div>

@@ -10,6 +10,10 @@ body {
     color: white;
 }
 
+.header-symbol-search {
+    padding-top: 25px;
+}
+
 .top-10-card {
     min-width: 150px;
     min-height: 75px;
@@ -61,4 +65,9 @@ body {
     color: white;
 }
 
+.top-10-card-remove {
+    position: absolute;
+    top: 27px;
+    right: 50px;
+}
 
