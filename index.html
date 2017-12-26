@@ -1,65 +1,58 @@
 <html>
-    <head>
-        <title>crypto-dash - A simple top 10 crypto dashboard</title>
-        
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
-        <div class="container-fluid">
+<head>
+    <title>crypto-dash - A simple top 10 crypto dashboard</title>
 
-            <div id="app">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <div id="header" class="row">
-                    <div class="col-lg-offset-4 col-lg-4 text-center">
-                         <H1 v-once>{{ appName }}</H1>     
-                    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="app">
+
+            <div id="header" class="row">
+                <div class="col-lg-4">
+                    <H1 v-once>{{ appName }}</H1>
                 </div>
+            </div>
 
-                <div id="content">
-                    <div class="row">
-                        <div class="col-xs-offset-1">
-                            <div v-for="coin in top10.slice(0,5)">
-                                <div class="col-lg-2 top-10-card">
-                                    <img v-bind:src="coin.image" class="img-thumbnail top-10-card-image">
-                                    <p class="top-10-card-name">{{ coin.name }}</p>
-                                    <p class="top-10-card-symbol">{{coin.symbol}}</p>
-                                    <p class="top-10-card-price">{{coin.price_usd}}</p>
-                                    <p class="top-10-card-price-24h">{{coin.percent_change_24h}} %</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-offset-1">
-                            <div v-for="coin in top10.slice(5,10)">
-                                <div class="col-lg-2 top-10-card">
-                                    <img v-bind:src="coin.image" class="img-thumbnail top-10-card-image">
-                                    <p class="top-10-card-name">{{ coin.name }}</p>
-                                    <p class="top-10-card-symbol">{{coin.symbol}}</p>
-                                    <p class="top-10-card-price">{{coin.price_usd}}</p>
-                                    <p class="top-10-card-price-24h">{{coin.percent_change_24h}} %</p>
-                                </div>
-                            </div>
+            <div id="content">
+                <div v-for="coin in top10">
+                    <div class="row col-lg-6">
+                        <div class="top-10-card">
+                            <img v-bind:src="coin.image" class="img-thumbnail top-10-card-image">
+                            <p class="top-10-card-name">{{ coin.name }}</p>
+                            <p class="top-10-card-symbol">{{coin.symbol}}</p>
+                            <p class="top-10-card-price">${{coin.price}}</p>
+                            <p class="top-10-card-price-24h">{{coin.percentChanged}}%</p>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div id="footer">
-                        
-                </div>
+            <div id="footer">
 
             </div>
-    
+
         </div>
 
-        <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/vue"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="js/app.js"></script>
-    </body>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/ccc-streamer-utilities.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
 </html>
