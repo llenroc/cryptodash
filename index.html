@@ -28,7 +28,7 @@
                     <div class="input-group header-symbol-search">
                         <input v-model="symbolSearchText" class="form-control" placeholder="Search for a crypto, e.g. BTC" />
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" v-on:click="onAddClicked">Add</button>
+                            <button class="btn btn-default" type="button" v-on:click="onAdd">Add</button>
                         </span>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                             <p class="top-10-card-symbol">{{coin.symbol}}</p>
                             <p class="top-10-card-price">${{coin.price}}</p>
                             <p class="top-10-card-price-24h">{{coin.percentChanged}}%</p>
-                            <p class="top-10-card-remove"><button class="btn btn-sm btn-danger" type="button">X</button></p>
+                            <p class="top-10-card-remove"><button class="btn btn-sm btn-danger" type="button" v-on:click="onRemove(coin.symbol)">X</button></p>
                         </div>
                     </div>
                 </div>

@@ -7,10 +7,6 @@ let app = new Vue({
     data: { 
         appName: 'Crypto.Dash',
         quoteCurrency: 'USD', 
-        marketData: {},
-        top10: [],
-        coinImgCache: { },
-
         coins: [],
         symbols: ['BTC', 'ETH', 'LTC'],
         symbolSearchText: '',
@@ -19,21 +15,19 @@ let app = new Vue({
     created: function() { 
 
         this.loadData();
-
-       // this.loadDataSources();    
-
     },     
     methods: {
 
-        onAddClicked: function(event) {
+        onAdd: function(event) {
             
             // TODO: Validation, etc.
 
             this.addSymbol(this.symbolSearchText);
         },
 
-        onRemoveClicked: function(event) {
+        onRemove: function(message, event) {
 
+            this.removeSymbol(message);
         },
 
         addSymbol: function(symbol) {
@@ -50,8 +44,16 @@ let app = new Vue({
             this.subscribeCoin(symbol, this.quoteCurrency);
         },
 
-        removeSymbol: function(symbol) {            
-            // Implement
+        removeSymbol: function(symbol) {         
+
+            var coin = this.coins.find(function(item) { return item.symbol === symbol; });
+
+            var index = this.coins.indexOf(coin);
+
+            console.log(index);
+
+            if(index > -1)
+                this.coins.splice(index, 1);
         },
 
         loadData: function() {
